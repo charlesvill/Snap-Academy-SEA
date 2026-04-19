@@ -1,0 +1,490 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Aglio e Olio",
+    "ingredients": [
+      "200g spaghetti",
+      "4 cloves garlic",
+      "1/4 cup olive oil",
+      "1 tsp red pepper flakes",
+      "Salt",
+      "Parsley"
+    ],
+    "steps": [
+      "Boil pasta until al dente",
+      "Heat olive oil and sauté garlic",
+      "Add red pepper flakes",
+      "Toss pasta with oil mixture",
+      "Garnish with parsley"
+    ],
+    "tools": ["pot", "pan", "knife"],
+    "metadata": {
+      "tags": ["Italian", "pasta"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 450,
+      "image": "https://picsum.photos/seed/spaghetti-aglio/600/400"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Chicken Stir Fry",
+    "ingredients": [
+      "2 chicken breasts",
+      "1 cup broccoli",
+      "1 bell pepper",
+      "soy sauce",
+      "garlic",
+      "ginger"
+    ],
+    "steps": [
+      "Slice chicken",
+      "Cook chicken in wok",
+      "Add vegetables",
+      "Add sauce and stir fry"
+    ],
+    "tools": ["wok", "knife"],
+    "metadata": {
+      "tags": ["Asian", "quick"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 25,
+      "difficulty": "easy",
+      "calories": 400,
+      "image": "https://picsum.photos/seed/chicken-stirfry/600/400"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Avocado Toast",
+    "ingredients": [
+      "2 slices bread",
+      "1 avocado",
+      "Salt",
+      "Pepper",
+      "Lemon juice"
+    ],
+    "steps": [
+      "Toast bread",
+      "Mash avocado",
+      "Spread on toast",
+      "Season to taste"
+    ],
+    "tools": ["toaster", "fork"],
+    "metadata": {
+      "tags": ["breakfast", "healthy"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 10,
+      "difficulty": "easy",
+      "calories": 300,
+      "image": "https://picsum.photos/seed/avocado-toast/600/400"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Beef Tacos",
+    "ingredients": [
+      "ground beef",
+      "taco shells",
+      "lettuce",
+      "cheese",
+      "tomato",
+      "taco seasoning"
+    ],
+    "steps": ["Cook beef with seasoning", "Prepare toppings", "Assemble tacos"],
+    "tools": ["pan"],
+    "metadata": {
+      "tags": ["Mexican"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 500,
+      "image": "https://picsum.photos/seed/beef-tacos/600/400"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Vegetable Curry",
+    "ingredients": [
+      "mixed vegetables",
+      "coconut milk",
+      "curry paste",
+      "onion",
+      "garlic"
+    ],
+    "steps": [
+      "Sauté onion and garlic",
+      "Add curry paste",
+      "Add vegetables and coconut milk",
+      "Simmer"
+    ],
+    "tools": ["pot"],
+    "metadata": {
+      "tags": ["Indian", "vegan"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 30,
+      "difficulty": "medium",
+      "calories": 350,
+      "image": "https://picsum.photos/seed/vegetable-curry/600/400"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Pancakes",
+    "ingredients": ["flour", "milk", "egg", "baking powder", "sugar"],
+    "steps": [
+      "Mix ingredients",
+      "Pour batter on griddle",
+      "Flip when bubbles form"
+    ],
+    "tools": ["bowl", "pan"],
+    "metadata": {
+      "tags": ["breakfast"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 350,
+      "image": "https://picsum.photos/seed/pancakes/600/400"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Grilled Salmon",
+    "ingredients": ["salmon fillet", "lemon", "olive oil", "salt", "pepper"],
+    "steps": ["Season salmon", "Grill for 8-10 minutes", "Serve with lemon"],
+    "tools": ["grill"],
+    "metadata": {
+      "tags": ["seafood"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 15,
+      "difficulty": "easy",
+      "calories": 450,
+      "image": "https://picsum.photos/seed/grilled-salmon/600/400"
+    }
+  },
+  {
+    "id": 8,
+    "title": "Caesar Salad",
+    "ingredients": [
+      "romaine lettuce",
+      "croutons",
+      "parmesan",
+      "caesar dressing"
+    ],
+    "steps": ["Chop lettuce", "Add toppings", "Toss with dressing"],
+    "tools": ["bowl"],
+    "metadata": {
+      "tags": ["salad"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 10,
+      "difficulty": "easy",
+      "calories": 250,
+      "image": "https://picsum.photos/seed/caesar-salad/600/400"
+    }
+  },
+  {
+    "id": 9,
+    "title": "Tomato Soup",
+    "ingredients": ["tomatoes", "onion", "garlic", "broth"],
+    "steps": ["Cook ingredients", "Blend", "Simmer"],
+    "tools": ["pot", "blender"],
+    "metadata": {
+      "tags": ["soup"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 30,
+      "difficulty": "easy",
+      "calories": 200,
+      "image": "https://picsum.photos/seed/tomato-soup/600/400"
+    }
+  },
+  {
+    "id": 10,
+    "title": "Omelette",
+    "ingredients": ["eggs", "cheese", "vegetables"],
+    "steps": ["Beat eggs", "Cook in pan", "Add fillings", "Fold"],
+    "tools": ["pan"],
+    "metadata": {
+      "tags": ["breakfast"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 10,
+      "difficulty": "easy",
+      "calories": 300,
+      "image": "https://picsum.photos/seed/omelette/600/400"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Burger",
+    "ingredients": ["ground beef", "bun", "lettuce", "cheese"],
+    "steps": ["Form patty", "Grill", "Assemble"],
+    "tools": ["grill"],
+    "metadata": {
+      "tags": ["American"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": false,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 700,
+      "image": "https://picsum.photos/seed/burger/600/400"
+    }
+  },
+  {
+    "id": 12,
+    "title": "Margherita Pizza",
+    "ingredients": ["pizza dough", "tomato sauce", "mozzarella", "basil"],
+    "steps": ["Prepare dough", "Add toppings", "Bake"],
+    "tools": ["oven"],
+    "metadata": {
+      "tags": ["Italian"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 25,
+      "difficulty": "medium",
+      "calories": 600,
+      "image": "https://picsum.photos/seed/margherita-pizza/600/400"
+    }
+  },
+  {
+    "id": 13,
+    "title": "Greek Salad",
+    "ingredients": ["cucumber", "tomato", "feta", "olives"],
+    "steps": ["Chop ingredients", "Mix"],
+    "tools": ["bowl"],
+    "metadata": {
+      "tags": ["Mediterranean"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 10,
+      "difficulty": "easy",
+      "calories": 250,
+      "image": "https://picsum.photos/seed/greek-salad/600/400"
+    }
+  },
+  {
+    "id": 14,
+    "title": "Pad Thai",
+    "ingredients": ["rice noodles", "shrimp", "egg", "peanuts"],
+    "steps": ["Cook noodles", "Stir fry ingredients", "Combine"],
+    "tools": ["wok"],
+    "metadata": {
+      "tags": ["Thai"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 30,
+      "difficulty": "medium",
+      "calories": 550,
+      "image": "https://picsum.photos/seed/pad-thai/600/400"
+    }
+  },
+  {
+    "id": 15,
+    "title": "Fried Rice",
+    "ingredients": ["rice", "egg", "vegetables", "soy sauce"],
+    "steps": ["Cook rice", "Stir fry everything"],
+    "tools": ["wok"],
+    "metadata": {
+      "tags": ["Asian"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": false,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 400,
+      "image": "https://picsum.photos/seed/fried-rice/600/400"
+    }
+  },
+  {
+    "id": 16,
+    "title": "Lentil Soup",
+    "ingredients": ["lentils", "carrot", "celery", "onion"],
+    "steps": ["Cook ingredients", "Simmer"],
+    "tools": ["pot"],
+    "metadata": {
+      "tags": ["vegan"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 40,
+      "difficulty": "easy",
+      "calories": 300,
+      "image": "https://picsum.photos/seed/lentil-soup/600/400"
+    }
+  },
+  {
+    "id": 17,
+    "title": "Smoothie Bowl",
+    "ingredients": ["banana", "berries", "granola"],
+    "steps": ["Blend fruit", "Add toppings"],
+    "tools": ["blender"],
+    "metadata": {
+      "tags": ["healthy"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 5,
+      "difficulty": "easy",
+      "calories": 250,
+      "image": "https://picsum.photos/seed/smoothie-bowl/600/400"
+    }
+  },
+  {
+    "id": 18,
+    "title": "Roast Chicken",
+    "ingredients": ["whole chicken", "herbs", "butter"],
+    "steps": ["Season chicken", "Roast"],
+    "tools": ["oven"],
+    "metadata": {
+      "tags": ["dinner"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 90,
+      "difficulty": "medium",
+      "calories": 600,
+      "image": "https://picsum.photos/seed/roast-chicken/600/400"
+    }
+  },
+  {
+    "id": 19,
+    "title": "Mac and Cheese",
+    "ingredients": ["pasta", "cheese", "milk"],
+    "steps": ["Cook pasta", "Make cheese sauce", "Combine"],
+    "tools": ["pot"],
+    "metadata": {
+      "tags": ["comfort food"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 25,
+      "difficulty": "easy",
+      "calories": 650,
+      "image": "https://picsum.photos/seed/mac-cheese/600/400"
+    }
+  },
+  {
+    "id": 20,
+    "title": "Falafel",
+    "ingredients": ["chickpeas", "herbs", "spices"],
+    "steps": ["Blend ingredients", "Form balls", "Fry"],
+    "tools": ["food processor", "pan"],
+    "metadata": {
+      "tags": ["Middle Eastern"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 30,
+      "difficulty": "medium",
+      "calories": 350,
+      "image": "https://picsum.photos/seed/falafel/600/400"
+    }
+  },
+  {
+    "id": 21,
+    "title": "Chocolate Chip Cookies",
+    "ingredients": ["flour", "sugar", "chocolate chips"],
+    "steps": ["Mix ingredients", "Bake"],
+    "tools": ["oven"],
+    "metadata": {
+      "tags": ["dessert"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 200,
+      "image": "https://picsum.photos/seed/cookies/600/400"
+    }
+  },
+  {
+    "id": 22,
+    "title": "Quinoa Salad",
+    "ingredients": ["quinoa", "vegetables", "lemon"],
+    "steps": ["Cook quinoa", "Mix ingredients"],
+    "tools": ["pot"],
+    "metadata": {
+      "tags": ["healthy"],
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true,
+      "cook_time_minutes": 25,
+      "difficulty": "easy",
+      "calories": 300,
+      "image": "https://picsum.photos/seed/quinoa-salad/600/400"
+    }
+  },
+  {
+    "id": 23,
+    "title": "Shrimp Scampi",
+    "ingredients": ["shrimp", "garlic", "butter", "lemon"],
+    "steps": ["Cook shrimp", "Add sauce"],
+    "tools": ["pan"],
+    "metadata": {
+      "tags": ["seafood"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 15,
+      "difficulty": "easy",
+      "calories": 400,
+      "image": "https://picsum.photos/seed/shrimp-scampi/600/400"
+    }
+  },
+  {
+    "id": 24,
+    "title": "Stuffed Peppers",
+    "ingredients": ["bell peppers", "rice", "ground meat"],
+    "steps": ["Stuff peppers", "Bake"],
+    "tools": ["oven"],
+    "metadata": {
+      "tags": ["dinner"],
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true,
+      "cook_time_minutes": 45,
+      "difficulty": "medium",
+      "calories": 450,
+      "image": "https://picsum.photos/seed/stuffed-peppers/600/400"
+    }
+  },
+  {
+    "id": 25,
+    "title": "Egg Fried Rice (Vegetarian)",
+    "ingredients": ["rice", "egg", "vegetables", "soy sauce"],
+    "steps": ["Cook rice", "Stir fry ingredients", "Combine"],
+    "tools": ["wok"],
+    "metadata": {
+      "tags": ["Asian", "vegetarian"],
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": false,
+      "cook_time_minutes": 20,
+      "difficulty": "easy",
+      "calories": 380,
+      "image": "https://picsum.photos/seed/veg-fried-rice/600/400"
+    }
+  }
+]

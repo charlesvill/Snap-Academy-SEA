@@ -1,31 +1,51 @@
 <!doctype html>
 <html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
+<head>
+  <title>LA TV Shows | Home</title>
+  <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+  <link rel="stylesheet" href="./style.css" />
+  <script type="text/javascript" src="./scripts.js"></script>
+</head>
+
+<body>
+  <header class="main-header">
+    <h1 class="title">Recipes: Charlie's Greatest Hits</h1>
+  </header>
+
+  <!-- card container -->
+  <div id="card-container"></div>
+
+  <!-- card template -->
+  <div class="card" style="display: none">
+    <div class="card-content">
+      <h2>Recipe</h2>
+      <img src="" alt="title + recipe image" />
+      <div class="topMetaData-container">
+        <div class="time-container">
+          <p class="time-content">
+            Cook time: <span class="time">ex. 30</span>minutes
+          </p>
+        </div>
+        <ul class="diet-list">
+          <ul class="diet-item">
+            ex. V
+          </ul>
+          <ul class="diet-item">
+            ex.G-F
+          </ul>
         </ul>
       </div>
+      <ul class="tags">
+        <li>Tag 1</li>
+        <li>tag 2</li>
+      </ul>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
-    </div>
-  </body>
+  </div>
+  <div class="footer">
+    <button onclick="quoteAlert()">Get A Quote!</button>
+    <button onclick="removeLastCard()">Remove A Card!</button>
+  </div>
+</body>
+
 </html>

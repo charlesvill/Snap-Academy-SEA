@@ -65,20 +65,28 @@ function showCards() {
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(
+  card,
+  recipeName,
+  cookTime,
+  dietLabels,
+  imageUrl,
+  tags,
+) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+  cardHeader.textContent = recipeName;
+
+  const topMetaDataCont = card.querySelector(".topMetaData-container");
+  // will search depth of parent element for first element w/ .time classname
+  const timeText = card.querySelector(".time");
 
   const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  cardImage.src = imageUrl;
+  cardImage.alt = recipeName + " Poster";
 
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+  console.log("new card:", recipeName, "- html: ", card);
 }
 
 // This calls the addCards() function when the page is first loaded
@@ -95,3 +103,34 @@ function removeLastCard() {
   titles.pop(); // Remove last item in titles array
   showCards(); // Call showCards again to refresh
 }
+
+// script -> html [cardcontainer]
+//
+//
+// ** DRIVER SCRIPT **
+// [show cards limit 10]
+// [filter by tag event listener]
+// [sort by cook time event listener]
+//  [next page event listener if >= 10 results]
+//
+//
+// ** DISPLAYING CARDS **
+//
+// [show cards] - map over data set
+//      |
+// [create card]
+//
+// ** MANIPULATE CARDS **
+//
+// [filter by unique tags]
+//
+//
+//
+//  [filter by vegan]
+//
+//
+//  [filter by vegetarian]
+//
+//
+// [sort by cook time]
+//

@@ -24,14 +24,57 @@
  */
 import dataSet from "./recipes/recipes.js";
 
-console.log("the imported file is array? ", Array.isArray(dataSet));
+let dataSelection = [...dataSet];
 // This function adds cards the page to display the data in the array
+function initialize() {
+  // populate the filter list
+  let filterList = [];
+
+  // expensive, potentially O(n^2) 
+  dataSet.forEach((recipe) => {
+    const tags = recipe.metadata.tags;
+
+    const found = filterList.some(recipe => recipe.metadata.tags.find(title) === title);
+    if (!found) {
+      filterList.push(title);
+    }
+  });
+  console.log(filterList, "is the filter list result");
+  const filterContainer = document.getElementById("filter-container");
+  createFilterFields(filterContainer, filterList);
+
+  // call show cards which pulls from dataSelection global.
+  showCards();
+}
+
+function createFilterFields(container, filterList) {
+  const filterTemplate = container.querySelector(".filter-item");
+  filterList.forEach((filter) => {
+    const newFilter = filterTemplate.cloneNode(true);
+    newFilter.style.display = "block";
+    newFilter.dataset.filter = filter;
+    newFilter.textContent = filter;
+    newFilter.addEventListener("click", filterCards);
+    container.appendChild(newFilter);
+  });
+}
+
+function filterCards(e) {
+  console.log(e.currentTarget);
+
+}
+function sortCards(e) {
+  const currentElement = e.currentTarget;
+  const dataAttribute = currentElement.dataset.sort;
+  console.log(currentElement);
+}
+
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  dataSet.forEach((recipe) => {
+  dataSelection.forEach((recipe) => {
     const recipeName = recipe.title;
     const cookTime = Number(recipe.metadata.cook_time_minutes);
     const dietLabels = {
@@ -124,7 +167,7 @@ function createTagCollection(card, tags) {
 
 
 // This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
+document.addEventListener("DOMContentLoaded", initialize);
 
 function quoteAlert() {
   console.log("Button Clicked!");

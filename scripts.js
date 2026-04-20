@@ -25,6 +25,10 @@
 import dataSet from "./recipes/recipes.js";
 
 let dataSelection = [...dataSet];
+const pageSize = 10;
+let page = 1;
+let rangeStart;
+let rangeEnd;
 
 // This function adds cards the page to display the data in the array
 function initialize() {
@@ -57,6 +61,76 @@ function initialize() {
 
   // call show cards which pulls from dataSelection global.
   showCards();
+}
+
+// modifies globals page
+function handlePage(e) {
+  const pageButton = e.currentTarget;
+  const direction = pageButton.dataset.direction;
+
+  if (direction == "forward") {
+    page++;
+  } else if (direction == "backward" && page > 1) {
+    page--;
+  }
+  paginate();
+}
+
+//relies on globals pageSize, page, dataSelection
+// modifies globals rangeStart, rangeEnd
+
+function paginate() {
+
+  const remaining = dataSelection.length;
+  if (remaining == 0) {
+    return;
+  }
+  const thisPageSize = remaining - pageSize;
+  if (thisPageSize < 0) {
+    thisPageSize = remaining;
+  }
+
+
+  // calculate start and end
+  const { start, end } = calculateRange(page, thisPageSize, pageSize);
+  // void fn reassigns DataSelection to filtered array
+  filterDataSet(start, end, dataSelection);
+
+  remaining -= thisPageSize;
+
+  const nextButton = document.getElementById("next-button");
+  const prevButton = document.getElementById("prev-button");
+
+  // populate the next button
+  if (remaining > 0) {
+    nextButton.style.display = "block";
+    nextButton.addEventListener("click", handlePage);
+  } else {
+    nextButton.style.display = "none";
+  }
+
+  // populate the prev button
+  if (page > 0) {
+    prevButton.style.display = "block";
+    prevButton.addEventListener("click", handlePage);
+  } else {
+    prevButton.style.display = "none";
+  }
+}
+
+function calculateRange(page, currentPageSize, pageSize) {
+  const start = (page - 1) * pageSize; // 0 
+  const end = start + currentPageSize; // 10  (on page 1)
+  return { start, end };
+}
+function filterDataSet(start, end, arr) {
+  const filtered = arr.filter((element, index) => {
+    if (index >= start && index < end) {
+      return element;
+    }
+  });
+
+  arr = filtered;
 }
 
 function reset() {
@@ -134,6 +208,7 @@ function showCards() {
     editCardContent(nextCard, recipeName, cookTime, dietLabels, imgUrl, tags); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   });
+  paginate();
 }
 
 function editCardContent(

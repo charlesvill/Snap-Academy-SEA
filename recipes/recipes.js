@@ -1,4 +1,4 @@
-[
+const dataSet = [
   {
     "id": 1,
     "title": "Spaghetti Aglio e Olio",
@@ -487,4 +487,6 @@
       "image": "https://picsum.photos/seed/veg-fried-rice/600/400"
     }
   }
-]
+];
+
+export default dataSet;

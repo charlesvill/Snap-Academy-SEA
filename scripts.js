@@ -22,47 +22,31 @@
  *    with the string you added to the array, but a broken image.
  *
  */
+import dataSet from "./recipes/recipes.js";
 
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
-];
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
-
+console.log("the imported file is array? ", Array.isArray(dataSet));
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
-
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
-    }
+  dataSet.forEach((recipe) => {
+    const recipeName = recipe.title;
+    const cookTime = Number(recipe.metadata.cook_time_minutes);
+    const dietLabels = {
+      "vegan": recipe.metadata.vegan,
+      "vegetarian": recipe.metadata.vegetarian,
+      "gluten_free": recipe.metadata.gluten_free
+    };
+    const imgUrl = recipe.metadata.image;
+    const tags = recipe.metadata.tags;
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
+    editCardContent(nextCard, recipeName, cookTime, dietLabels, imgUrl, tags); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
-  }
+  });
+
 }
 
 function editCardContent(
@@ -78,16 +62,66 @@ function editCardContent(
   const cardHeader = card.querySelector("h2");
   cardHeader.textContent = recipeName;
 
-  const topMetaDataCont = card.querySelector(".topMetaData-container");
-  // will search depth of parent element for first element w/ .time classname
   const timeText = card.querySelector(".time");
+  timeText.textContent = cookTime;
+  console.log(timeText, "is the element found for timeTExt");
+  console.log("time text: ", cookTime);
 
-  const cardImage = card.querySelector("img");
+  // cycle through dietrary restriction labels & add relevant label to card
+  createDietLabels(card, dietLabels);
+
+  const cardImage = card.querySelector(".recipe-img");
   cardImage.src = imageUrl;
   cardImage.alt = recipeName + " Poster";
 
   console.log("new card:", recipeName, "- html: ", card);
+
+  // tags 
+  createTagCollection(card, tags);
 }
+
+function createDietLabels(card, dietObj) {
+  const container = card.querySelector(".diet-list");
+
+  for (const property in dietObj) {
+    console.log(property);
+    if (dietObj[property] == true) {
+      const templateLabel = card.querySelector(".diet-item");
+      console.log(templateLabel, "here is the template label");
+      const newLabel = templateLabel.cloneNode(true);
+      dietLabel(newLabel, property);
+      container.appendChild(newLabel);
+    }
+    console.log("total structure of diet container: ", container);
+  }
+}
+
+function dietLabel(labelElement, label) {
+  const labelDirectory = {
+    "vegan": "./assets/vegan.png",
+    "vegetarian": "./assets/tag.png",
+    "gluten_free": "./assets/gluten-free.png"
+  };
+  labelElement.style.display = "block";
+  const labelImg = labelElement.querySelector("img");
+  labelImg.src = labelDirectory[label];
+  console.log("the source for new label made: ", labelDirectory[label]);
+  labelImg.alt = label + " label";
+}
+
+function createTagCollection(card, tags) {
+  const tagList = card.querySelector(".tags");
+  tags.forEach((tag) => {
+    const tagTemplate = tagList.querySelector(".tag-item");
+    const newTag = tagTemplate.cloneNode(true);
+    newTag.style.display = "block";
+    newTag.textContent = tag;
+    tagList.appendChild(newTag);
+  });
+
+
+}
+
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);

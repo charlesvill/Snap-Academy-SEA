@@ -5,7 +5,7 @@
   <title>LA TV Shows | Home</title>
   <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
   <link rel="stylesheet" href="./style.css" />
-  <script type="text/javascript" src="./scripts.js"></script>
+  <script type="module" src="./scripts.js"></script>
 </head>
 
 <body>
@@ -20,28 +20,25 @@
   <div class="card" style="display: none">
     <div class="card-content">
       <h2>Recipe</h2>
-      <img src="" alt="title + recipe image" />
       <div class="topMetaData-container">
         <div class="time-container">
           <p class="time-content">
-            Cook time: <span class="time">ex. 30</span>minutes
+            Cook time: <span class="time"></span>m
           </p>
         </div>
         <ul class="diet-list">
-          <ul class="diet-item">
-            ex. V
-          </ul>
-          <ul class="diet-item">
-            ex.G-F
-          </ul>
+          <li class="diet-item" style="display: none">
+            <img src="" alt="">
+          </li>
         </ul>
       </div>
+      <img class="recipe-img" src="" alt="title + recipe image" />
       <ul class="tags">
-        <li>Tag 1</li>
-        <li>tag 2</li>
+        <li class="tag-item" style="display: none"></li>
       </ul>
     </div>
   </div>
+
   <div class="footer">
     <button onclick="quoteAlert()">Get A Quote!</button>
     <button onclick="removeLastCard()">Remove A Card!</button>

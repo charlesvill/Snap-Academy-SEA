@@ -18,6 +18,28 @@ body {
   color: white;
 }
 
+/* header edits begin here */
+
+#filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.filter-item {
+  gap: 1px;              /* or use this on the flex container, not the item */
+  padding: 4px;
+  margin: 4px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.filter-item:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+/* header edits end here */
+
 #card-container {
   display: flex;
   flex-wrap: wrap;
@@ -49,11 +71,7 @@ body {
   height: auto;
 }
 
-
 /* edits begin here */
-
-
-
 
 /* diet list  */
 .topMetaData-container {
@@ -106,7 +124,6 @@ body {
   color: #555;
 }
 
-
 /* overrides  */
 .card-content {
   padding: 16px;
@@ -122,9 +139,6 @@ body {
 }
 
 /* edits end here  */
-
-
-
 
 .footer {
   display: flex;

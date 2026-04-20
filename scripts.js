@@ -41,6 +41,7 @@ function initialize() {
       }
     });
   });
+
   console.log(filterList, "is the filter list result");
   const filterContainer = document.getElementById("filter-container");
   createFilterFields(filterContainer, filterList);
@@ -50,7 +51,16 @@ function initialize() {
   const sortButton = sortContainer.querySelector(".sort-button");
   sortButton.addEventListener("click", sortCards);
 
+  // attach eventListeners to reset button
+  const resetButton = document.getElementById("reset-button");
+  resetButton.addEventListener("click", reset);
+
   // call show cards which pulls from dataSelection global.
+  showCards();
+}
+
+function reset() {
+  resetCards();
   showCards();
 }
 
@@ -101,7 +111,7 @@ function sortCards(e) {
 }
 
 function resetCards() {
-  dataSelection = dataSet;
+  dataSelection = [...dataSet];
 }
 
 function showCards() {
@@ -199,18 +209,6 @@ function createTagCollection(card, tags) {
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", initialize);
-
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
-  );
-}
-
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
-}
 
 // script -> html [cardcontainer]
 //

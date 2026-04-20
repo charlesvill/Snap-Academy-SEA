@@ -30,14 +30,15 @@ function initialize() {
   // populate the filter list
   let filterList = [];
 
-  // expensive, potentially O(n^2) 
+  // expensive, O(n^2) 
   dataSet.forEach((recipe) => {
     const tags = recipe.metadata.tags;
-
-    const found = filterList.some(recipe => recipe.metadata.tags.find(title) === title);
-    if (!found) {
-      filterList.push(title);
-    }
+    tags.forEach((tag) => {
+      const found = filterList.some(element => element === tag);
+      if (!found) {
+        filterList.push(tag);
+      }
+    });
   });
   console.log(filterList, "is the filter list result");
   const filterContainer = document.getElementById("filter-container");

@@ -15,8 +15,10 @@
       <ul id="filter-container">
         <li class="filter-item" data-filter="" style="display: none"></li>
       </ul>
-      <div class="sort-container">
-        <button onclick="sortCards()">Sort by cook time</button>
+      <div id="sort-container">
+        <button class="sort-button" data-sort="time" data-order="asc">
+          Sort by cook time
+        </button>
       </div>
     </nav>
   </header>
@@ -30,13 +32,11 @@
       <h2>Recipe</h2>
       <div class="topMetaData-container">
         <div class="time-container">
-          <p class="time-content">
-            Cook time: <span class="time"></span>m
-          </p>
+          <p class="time-content">Cook time: <span class="time"></span>m</p>
         </div>
         <ul class="diet-list">
           <li class="diet-item" style="display: none">
-            <img src="" alt="">
+            <img src="" alt="" />
           </li>
         </ul>
       </div>

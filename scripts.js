@@ -25,16 +25,17 @@
 import dataSet from "./recipes/recipes.js";
 
 let dataSelection = [...dataSet];
+
 // This function adds cards the page to display the data in the array
 function initialize() {
   // populate the filter list
   let filterList = [];
 
-  // expensive, O(n^2) 
+  // expensive, O(n^2)
   dataSet.forEach((recipe) => {
     const tags = recipe.metadata.tags;
     tags.forEach((tag) => {
-      const found = filterList.some(element => element === tag);
+      const found = filterList.some((element) => element === tag);
       if (!found) {
         filterList.push(tag);
       }
@@ -43,6 +44,11 @@ function initialize() {
   console.log(filterList, "is the filter list result");
   const filterContainer = document.getElementById("filter-container");
   createFilterFields(filterContainer, filterList);
+
+  // attach eventListeners to sorting module
+  const sortContainer = document.getElementById("sort-container");
+  const sortButton = sortContainer.querySelector(".sort-button");
+  sortButton.addEventListener("click", sortCards);
 
   // call show cards which pulls from dataSelection global.
   showCards();
@@ -61,13 +67,41 @@ function createFilterFields(container, filterList) {
 }
 
 function filterCards(e) {
-  console.log(e.currentTarget);
+  resetCards();
+  const currentFilter = e.currentTarget;
+  const filterAttribute = currentFilter.dataset.filter;
 
+  // update dataSelected
+  const filteredArr = dataSelection.filter((recipe) =>
+    recipe.metadata.tags.some((tag) => tag === filterAttribute),
+  );
+  dataSelection = filteredArr;
+
+  // refresh by calling showcards()
+  showCards();
 }
+
 function sortCards(e) {
   const currentElement = e.currentTarget;
-  const dataAttribute = currentElement.dataset.sort;
+  const sortParameter = currentElement.dataset.sort;
+  const sortOrder = currentElement.dataset.order;
   console.log(currentElement);
+  console.log(sortParameter, sortOrder);
+  dataSelection.sort((a, b) => {
+    const numA = Number(a.metadata.cook_time_minutes);
+    const numB = Number(b.metadata.cook_time_minutes);
+    if (numA > numB) {
+      return 1;
+    } else if (numA < numB) {
+      return -1;
+    }
+    return 0;
+  });
+  showCards();
+}
+
+function resetCards() {
+  dataSelection = dataSet;
 }
 
 function showCards() {
@@ -79,9 +113,9 @@ function showCards() {
     const recipeName = recipe.title;
     const cookTime = Number(recipe.metadata.cook_time_minutes);
     const dietLabels = {
-      "vegan": recipe.metadata.vegan,
-      "vegetarian": recipe.metadata.vegetarian,
-      "gluten_free": recipe.metadata.gluten_free
+      vegan: recipe.metadata.vegan,
+      vegetarian: recipe.metadata.vegetarian,
+      gluten_free: recipe.metadata.gluten_free,
     };
     const imgUrl = recipe.metadata.image;
     const tags = recipe.metadata.tags;
@@ -90,7 +124,6 @@ function showCards() {
     editCardContent(nextCard, recipeName, cookTime, dietLabels, imgUrl, tags); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   });
-
 }
 
 function editCardContent(
@@ -120,7 +153,7 @@ function editCardContent(
 
   console.log("new card:", recipeName, "- html: ", card);
 
-  // tags 
+  // tags
   createTagCollection(card, tags);
 }
 
@@ -142,9 +175,9 @@ function createDietLabels(card, dietObj) {
 
 function dietLabel(labelElement, label) {
   const labelDirectory = {
-    "vegan": "./assets/vegan.png",
-    "vegetarian": "./assets/tag.png",
-    "gluten_free": "./assets/gluten-free.png"
+    vegan: "./assets/vegan.png",
+    vegetarian: "./assets/tag.png",
+    gluten_free: "./assets/gluten-free.png",
   };
   labelElement.style.display = "block";
   const labelImg = labelElement.querySelector("img");
@@ -162,10 +195,7 @@ function createTagCollection(card, tags) {
     newTag.textContent = tag;
     tagList.appendChild(newTag);
   });
-
-
 }
-
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", initialize);

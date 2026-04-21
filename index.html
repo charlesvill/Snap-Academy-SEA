@@ -2,22 +2,26 @@
 <html>
 
 <head>
-  <title>LA TV Shows | Home</title>
+  <title>Recipe Vault | Home</title>
   <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
   <link rel="stylesheet" href="./style.css" />
   <script type="module" src="./scripts.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
   <header class="main-header">
-    <h1 class="title">Recipes: Charlie's Greatest Hits</h1>
+    <h1 class="title">Recipe Vault</h1>
     <nav>
       <ul id="filter-container">
         <li class="filter-item" data-filter="" style="display: none"></li>
       </ul>
       <div id="sort-container">
+        <span class="sort-text">Cook time</span>
         <button class="sort-button" data-sort="time" data-order="asc">
-          Sort by cook time
+          Sort
         </button>
       </div>
     </nav>
@@ -48,11 +52,10 @@
   </div>
 
   <div class="footer">
-    <div id="page-nav-container">
-      <span id="prev-button" data-direction="backward" style="display: none;">Prev</span> | <span id="next-button"
-        data-direction="forward" style="display: none;">Next</span>
-    </div>
     <button id="reset-button">Reset</button>
+    <a href="https://github.com/charlesvill" target="_blank" rel="noreferrer">
+      Designed & Built by Charles Villalpando
+    </a>
   </div>
 </body>
 

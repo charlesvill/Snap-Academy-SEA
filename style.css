@@ -5,17 +5,30 @@ body {
 }
 
 .main-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-bottom: 10px;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  padding: 20px;
+  /* color: white; */
 }
-
 .title {
   text-align: center;
   margin: 0;
   font-size: 8em;
-  font-family: "Helvetica";
+  font-family: "Playfair Display", serif;
   font-weight: normal;
-  color: white;
+  color: charcoal;
+}
+.title {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 /* header edits begin here */
@@ -23,19 +36,43 @@ body {
 #filter-container {
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
 }
 .filter-item {
-  gap: 1px;              /* or use this on the flex container, not the item */
-  padding: 4px;
-  margin: 4px;
-  background-color: white;
-  border-radius: 5px;
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: white;
+  font-size: 1.2em;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
 }
 
 .filter-item:hover {
-  background-color: grey;
+  background-color: white;
+  color: #333;
   cursor: pointer;
+  transform: translateY(-1px);
+}
+.sort-text {
+  color: white;
+}
+
+.sort-button {
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.sort-button:hover {
+  background-color: #eee;
+  transform: translateY(-1px);
 }
 
 /* header edits end here */
@@ -57,7 +94,7 @@ body {
 
 .card-content {
   padding: 20px;
-  font-family: "Verdana";
+  font-family: "Poppins", sans-serif;
   color: #777;
 }
 
@@ -66,9 +103,16 @@ body {
   font-size: 20px;
 }
 
-.card img {
+/* .card img { */
+/*   width: 100%; */
+/*   height: auto; */
+/* } */
+.recipe-img {
   width: 100%;
-  height: auto;
+  height: 180px; /* pick a consistent height */
+  object-fit: cover; /* crop instead of stretch */
+  object-position: center; /* keep subject centered */
+  display: block;
 }
 
 /* edits begin here */
@@ -142,11 +186,19 @@ body {
 
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  background-color: #797c82;
   padding: 10px;
 }
-
+.footer > a {
+  color: var(--base-text-color);
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  align-items: center;
+}
 button {
   text-align: center;
   background-color: #666;
@@ -154,9 +206,20 @@ button {
   padding-left: 10px;
   padding-right: 10px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 4px;
   color: white;
   font-size: 22px;
   cursor: pointer;
   margin: 5px;
+}
+@media (max-width: 630px) {
+  #card-container {
+    margin: 10px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 500px; /* prevents it from getting too huge on larger phones */
+    margin: 10px auto; /* center it */
+  }
 }

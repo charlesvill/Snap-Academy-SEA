@@ -1,27 +1,3 @@
-/**
- * Data Catalog Project Starter Code - SEA Stage 2
- *
- * This file is where you should be doing most of your work. You should
- * also make changes to the HTML and CSS files, but we want you to prioritize
- * demonstrating your understanding of data structures, and you'll do that
- * with the JavaScript code you write in this file.
- *
- * The comments in this file are only to help you learn how the starter code
- * works. The instructions for the project are in the README. That said, here
- * are the three things you should do first to learn about the starter code:
- * - 1 - Change something small in index.html or style.css, then reload your
- *    browser and make sure you can see that change.
- * - 2 - On your browser, right click anywhere on the page and select
- *    "Inspect" to open the browser developer tools. Then, go to the "console"
- *    tab in the new window that opened up. This console is where you will see
- *    JavaScript errors and logs, which is extremely helpful for debugging.
- *    (These instructions assume you're using Chrome, opening developer tools
- *    may be different on other browsers. We suggest using Chrome.)
- * - 3 - Add another string to the titles array a few lines down. Reload your
- *    browser and observe what happens. You should see a fourth "card" appear
- *    with the string you added to the array, but a broken image.
- *
- */
 import dataSet from "./recipes/recipes.js";
 
 let dataSelection = [...dataSet];
@@ -42,7 +18,6 @@ function initialize() {
     });
   });
 
-  console.log(filterList, "is the filter list result");
   const filterContainer = document.getElementById("filter-container");
   createFilterFields(filterContainer, filterList);
 
@@ -91,12 +66,8 @@ function filterCards(e) {
   showCards();
 }
 
-function sortCards(e) {
-  const currentElement = e.currentTarget;
-  const sortParameter = currentElement.dataset.sort;
-  const sortOrder = currentElement.dataset.order;
-  console.log(currentElement);
-  console.log(sortParameter, sortOrder);
+// sorts array in place and refreshes cards
+function sortCards() {
   dataSelection.sort((a, b) => {
     const numA = Number(a.metadata.cook_time_minutes);
     const numB = Number(b.metadata.cook_time_minutes);
@@ -109,6 +80,7 @@ function sortCards(e) {
   });
   showCards();
 }
+
 
 function resetCards() {
   dataSelection = [...dataSet];
@@ -134,7 +106,6 @@ function showCards() {
     editCardContent(nextCard, recipeName, cookTime, dietLabels, imgUrl, tags); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   });
-  paginate();
 }
 
 function editCardContent(
@@ -152,8 +123,6 @@ function editCardContent(
 
   const timeText = card.querySelector(".time");
   timeText.textContent = cookTime;
-  console.log(timeText, "is the element found for timeTExt");
-  console.log("time text: ", cookTime);
 
   // cycle through dietrary restriction labels & add relevant label to card
   createDietLabels(card, dietLabels);
@@ -162,7 +131,6 @@ function editCardContent(
   cardImage.src = imageUrl;
   cardImage.alt = recipeName + " Poster";
 
-  console.log("new card:", recipeName, "- html: ", card);
 
   // tags
   createTagCollection(card, tags);
@@ -172,7 +140,6 @@ function createDietLabels(card, dietObj) {
   const container = card.querySelector(".diet-list");
 
   for (const property in dietObj) {
-    console.log(property);
     if (dietObj[property] == true) {
       const templateLabel = card.querySelector(".diet-item");
       console.log(templateLabel, "here is the template label");
@@ -180,7 +147,6 @@ function createDietLabels(card, dietObj) {
       dietLabel(newLabel, property);
       container.appendChild(newLabel);
     }
-    console.log("total structure of diet container: ", container);
   }
 }
 
@@ -208,36 +174,5 @@ function createTagCollection(card, tags) {
   });
 }
 
-// This calls the addCards() function when the page is first loaded
+// initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", initialize);
-
-// script -> html [cardcontainer]
-//
-//
-// ** DRIVER SCRIPT **
-// [show cards limit 10]
-// [filter by tag event listener]
-// [sort by cook time event listener]
-//  [next page event listener if >= 10 results]
-//
-//
-// ** DISPLAYING CARDS **
-//
-// [show cards] - map over data set
-//      |
-// [create card]
-//
-// ** MANIPULATE CARDS **
-//
-// [filter by unique tags]
-//
-//
-//
-//  [filter by vegan]
-//
-//
-//  [filter by vegetarian]
-//
-//
-// [sort by cook time]
-//
